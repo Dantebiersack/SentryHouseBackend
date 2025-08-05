@@ -1,0 +1,105 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Angel\\source\\repos\\SentryHouseBackend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{24CD2588-342D-4756-AD6E-C167009DB29C}|AuthAPI\\SentryHouseBackend.csproj|c:\\users\\angel\\source\\repos\\sentryhousebackend\\authapi\\controllers\\materiaprimacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{24CD2588-342D-4756-AD6E-C167009DB29C}|AuthAPI\\SentryHouseBackend.csproj|solutionrelative:authapi\\controllers\\materiaprimacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24CD2588-342D-4756-AD6E-C167009DB29C}|AuthAPI\\SentryHouseBackend.csproj|c:\\users\\angel\\source\\repos\\sentryhousebackend\\authapi\\models\\materiaprima.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{24CD2588-342D-4756-AD6E-C167009DB29C}|AuthAPI\\SentryHouseBackend.csproj|solutionrelative:authapi\\models\\materiaprima.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24CD2588-342D-4756-AD6E-C167009DB29C}|AuthAPI\\SentryHouseBackend.csproj|c:\\users\\angel\\source\\repos\\sentryhousebackend\\authapi\\models\\servicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{24CD2588-342D-4756-AD6E-C167009DB29C}|AuthAPI\\SentryHouseBackend.csproj|solutionrelative:authapi\\models\\servicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24CD2588-342D-4756-AD6E-C167009DB29C}|AuthAPI\\SentryHouseBackend.csproj|c:\\users\\angel\\source\\repos\\sentryhousebackend\\authapi\\controllers\\servicioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{24CD2588-342D-4756-AD6E-C167009DB29C}|AuthAPI\\SentryHouseBackend.csproj|solutionrelative:authapi\\controllers\\servicioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24CD2588-342D-4756-AD6E-C167009DB29C}|AuthAPI\\SentryHouseBackend.csproj|c:\\users\\angel\\source\\repos\\sentryhousebackend\\authapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{24CD2588-342D-4756-AD6E-C167009DB29C}|AuthAPI\\SentryHouseBackend.csproj|solutionrelative:authapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ServiciosController.cs",
+              "DocumentMoniker": "C:\\Users\\Angel\\source\\repos\\SentryHouseBackend\\AuthAPI\\Controllers\\ServiciosController.cs",
+              "RelativeDocumentMoniker": "AuthAPI\\Controllers\\ServiciosController.cs",
+              "ToolTip": "C:\\Users\\Angel\\source\\repos\\SentryHouseBackend\\AuthAPI\\Controllers\\ServiciosController.cs",
+              "RelativeToolTip": "AuthAPI\\Controllers\\ServiciosController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-05T05:14:50.866Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Servicio.cs",
+              "DocumentMoniker": "C:\\Users\\Angel\\source\\repos\\SentryHouseBackend\\AuthAPI\\Models\\Servicio.cs",
+              "RelativeDocumentMoniker": "AuthAPI\\Models\\Servicio.cs",
+              "ToolTip": "C:\\Users\\Angel\\source\\repos\\SentryHouseBackend\\AuthAPI\\Models\\Servicio.cs",
+              "RelativeToolTip": "AuthAPI\\Models\\Servicio.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-05T05:09:51.95Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MateriaPrimaController.cs",
+              "DocumentMoniker": "C:\\Users\\Angel\\source\\repos\\SentryHouseBackend\\AuthAPI\\Controllers\\MateriaPrimaController.cs",
+              "RelativeDocumentMoniker": "AuthAPI\\Controllers\\MateriaPrimaController.cs",
+              "ToolTip": "C:\\Users\\Angel\\source\\repos\\SentryHouseBackend\\AuthAPI\\Controllers\\MateriaPrimaController.cs",
+              "RelativeToolTip": "AuthAPI\\Controllers\\MateriaPrimaController.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAA7wDIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-05T03:17:14.153Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MateriaPrima.cs",
+              "DocumentMoniker": "C:\\Users\\Angel\\source\\repos\\SentryHouseBackend\\AuthAPI\\Models\\MateriaPrima.cs",
+              "RelativeDocumentMoniker": "AuthAPI\\Models\\MateriaPrima.cs",
+              "ToolTip": "C:\\Users\\Angel\\source\\repos\\SentryHouseBackend\\AuthAPI\\Models\\MateriaPrima.cs",
+              "RelativeToolTip": "AuthAPI\\Models\\MateriaPrima.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-05T03:16:50.345Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Angel\\source\\repos\\SentryHouseBackend\\AuthAPI\\Program.cs",
+              "RelativeDocumentMoniker": "AuthAPI\\Program.cs",
+              "ToolTip": "C:\\Users\\Angel\\source\\repos\\SentryHouseBackend\\AuthAPI\\Program.cs",
+              "RelativeToolTip": "AuthAPI\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T01:33:15.797Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
