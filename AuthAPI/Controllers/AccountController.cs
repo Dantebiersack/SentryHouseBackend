@@ -18,7 +18,7 @@ namespace SentryHouseBackend.Controllers
     [ApiController]
     [Route("api/[controller]")]
     //api/account
-    public class AccountController : ControllerBase
+    public class AccountController : ControllerBase 
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
