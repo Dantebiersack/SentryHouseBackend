@@ -101,15 +101,5 @@
     "C:\\Users\\rgcam\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
     "C:\\Users\\rgcam\\.nuget\\packages\\zstdsharp.port\\0.7.3\\zstdsharp.port.0.7.3.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "message": "Problema al leer el archivo de caché C:\\Developer\\Basededatos\\SentryHouseBackend\\AuthAPI\\obj\\project.nuget.cache : '<' is an invalid start of a property name. Expected a '\"'. Path: $ | LineNumber: 2 | BytePositionInLine: 0.",
-      "projectPath": "C:\\Developer\\Basededatos\\SentryHouseBackend\\AuthAPI\\SentryHouseBackend.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\Developer\\Basededatos\\SentryHouseBackend\\AuthAPI\\SentryHouseBackend.csproj",
-      "targetGraphs": []
-    }
-  ]
+  "logs": []
 }
