@@ -32,7 +32,7 @@ namespace SentryHouseBackend.Controllers
                     ServicioNombre = cs.Servicio.Nombre,
                     ServicioDescripcion = cs.Servicio.Descripcion,
                     FechaVenta = v.FechaVenta,
-                    ArchivoDocumento = v.ArchivoDocumento
+                    archivoDocumento = cs.Servicio.ArchivoDocumento
                 }))
                 .ToListAsync();
 

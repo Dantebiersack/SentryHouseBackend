@@ -228,6 +228,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SentryHouseBackend.Controllers.EmailController",
+    "Method": "EnviarCorreo",
+    "RelativePath": "api/Email/enviarCorreo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SentryHouseBackend.Dtos.EmailRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SentryHouseBackend.Controllers.MateriaPrimaController",
     "Method": "GetMateriasPrimas",
     "RelativePath": "api/MateriaPrima",

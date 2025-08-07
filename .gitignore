@@ -2,9 +2,12 @@
 .vs/
 
 # Ignorar archivos de paquetes y binarios
-bin/
-obj/
+AuthAPI/bin/
+AuthAPI/obj/
 
 # Ignorar archivos de configuración de usuario
 *.user
-*.suo
+*.
+
+AuthAPI/appsettings.json
+AuthAPI/appsettings.Development.json

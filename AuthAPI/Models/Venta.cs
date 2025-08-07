@@ -12,6 +12,7 @@ namespace SentryHouseBackend.Models
         public AppUser Usuario { get; set; }  // esta es la navegación a AspNetUsers
 
         public DateTime FechaVenta { get; set; } = DateTime.Now;
-        public string ArchivoDocumento { get; set; }
+
+        
     }
 }
