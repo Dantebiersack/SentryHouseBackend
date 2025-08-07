@@ -166,6 +166,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SentryHouseBackend.Controllers.ComentariosController",
+    "Method": "Get",
+    "RelativePath": "api/Comentarios",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SentryHouseBackend.Controllers.ComentariosController",
+    "Method": "Post",
+    "RelativePath": "api/Comentarios",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SentryHouseBackend.Models.Comentarios",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SentryHouseBackend.Controllers.CotizacionesController",
     "Method": "GetCotizaciones",
     "RelativePath": "api/Cotizaciones",

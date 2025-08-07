@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Developer\\SentryHouse\\SentryHouseBackend\\AuthAPI\\SentryHouseBackend.csproj": {}
   },
   "projects": {
@@ -12,12 +13,29 @@
         "projectPath": "C:\\Developer\\SentryHouse\\SentryHouseBackend\\AuthAPI\\SentryHouseBackend.csproj",
         "packagesPath": "C:\\Users\\rgcam\\.nuget\\packages\\",
         "outputPath": "C:\\Developer\\SentryHouse\\SentryHouseBackend\\AuthAPI\\obj\\",
+=======
+    "C:\\Users\\josue\\OneDrive\\Documentos\\SentryHouse Mena\\SentryHouseBackend\\AuthAPI\\SentryHouseBackend.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\josue\\OneDrive\\Documentos\\SentryHouse Mena\\SentryHouseBackend\\AuthAPI\\SentryHouseBackend.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\josue\\OneDrive\\Documentos\\SentryHouse Mena\\SentryHouseBackend\\AuthAPI\\SentryHouseBackend.csproj",
+        "projectName": "SentryHouseBackend",
+        "projectPath": "C:\\Users\\josue\\OneDrive\\Documentos\\SentryHouse Mena\\SentryHouseBackend\\AuthAPI\\SentryHouseBackend.csproj",
+        "packagesPath": "C:\\Users\\josue\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\josue\\OneDrive\\Documentos\\SentryHouse Mena\\SentryHouseBackend\\AuthAPI\\obj\\",
+>>>>>>> 7d77ef1234ddf7f6ec8b1993a8d3fd8f59629b8b
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
+<<<<<<< HEAD
           "C:\\Users\\rgcam\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+          "C:\\Users\\josue\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 7d77ef1234ddf7f6ec8b1993a8d3fd8f59629b8b
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
