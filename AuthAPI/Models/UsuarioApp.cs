@@ -20,6 +20,8 @@ namespace SentryHouseBackend.Models
 
         [BsonElement("cotizacionId")]
         public int CotizacionId { get; set; }
+
+        public ICollection<Venta> Ventas { get; set; }
     }
 
 }

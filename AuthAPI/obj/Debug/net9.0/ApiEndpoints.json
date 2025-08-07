@@ -517,5 +517,21 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SentryHouseBackend.Controllers.VentasController",
+    "Method": "ObtenerVentasPorUsuario",
+    "RelativePath": "api/Ventas/usuario/{usuarioId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "usuarioId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

@@ -12,8 +12,8 @@ using SentryHouseBackend.Data;
 namespace SentryHouseBackend.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250731012537_InitalCreate")]
-    partial class InitalCreate
+    [Migration("20250807080135_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -389,10 +389,16 @@ namespace SentryHouseBackend.Migrations
                     b.Property<DateTime>("FechaVenta")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("UsuarioId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CotizacionId")
                         .IsUnique();
+
+                    b.HasIndex("UsuarioId");
 
                     b.ToTable("Ventas");
                 });
@@ -486,7 +492,20 @@ namespace SentryHouseBackend.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("SentryHouseBackend.Models.AppUser", "Usuario")
+                        .WithMany("Ventas")
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Cotizacion");
+
+                    b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("SentryHouseBackend.Models.AppUser", b =>
+                {
+                    b.Navigation("Ventas");
                 });
 
             modelBuilder.Entity("SentryHouseBackend.Models.Cotizacion", b =>

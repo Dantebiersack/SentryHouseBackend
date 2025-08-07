@@ -5422,23 +5422,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Angel\\.nuget\\packages\\": {},
+    "C:\\Users\\rgcam\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Angel\\source\\repos\\SentryHouseBackend\\AuthAPI\\SentryHouseBackend.csproj",
+      "projectUniqueName": "C:\\Developer\\SentryHouse\\SentryHouseBackend\\AuthAPI\\SentryHouseBackend.csproj",
       "projectName": "SentryHouseBackend",
-      "projectPath": "C:\\Users\\Angel\\source\\repos\\SentryHouseBackend\\AuthAPI\\SentryHouseBackend.csproj",
-      "packagesPath": "C:\\Users\\Angel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Angel\\source\\repos\\SentryHouseBackend\\AuthAPI\\obj\\",
+      "projectPath": "C:\\Developer\\SentryHouse\\SentryHouseBackend\\AuthAPI\\SentryHouseBackend.csproj",
+      "packagesPath": "C:\\Users\\rgcam\\.nuget\\packages\\",
+      "outputPath": "C:\\Developer\\SentryHouse\\SentryHouseBackend\\AuthAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Angel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\rgcam\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

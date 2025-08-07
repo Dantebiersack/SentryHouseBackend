@@ -37,6 +37,11 @@ namespace SentryHouseBackend.Data
                 .WithMany()
                 .HasForeignKey(cs => cs.ServicioId);
 
+            builder.Entity<Venta>()
+            .HasOne(v => v.Usuario)
+            .WithMany(u => u.Ventas)
+            .HasForeignKey(v => v.UsuarioId);
         }
+
     }
 }

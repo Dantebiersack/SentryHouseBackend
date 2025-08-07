@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace SentryHouseBackend.Migrations
 {
     /// <inheritdoc />
-    public partial class InitalCreate : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -217,12 +217,19 @@ namespace SentryHouseBackend.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CotizacionId = table.Column<int>(type: "int", nullable: false),
+                    UsuarioId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     FechaVenta = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ArchivoDocumento = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Ventas", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Ventas_AspNetUsers_UsuarioId",
+                        column: x => x.UsuarioId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Ventas_Cotizaciones_CotizacionId",
                         column: x => x.CotizacionId,
@@ -331,6 +338,11 @@ namespace SentryHouseBackend.Migrations
                 table: "Ventas",
                 column: "CotizacionId",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Ventas_UsuarioId",
+                table: "Ventas",
+                column: "UsuarioId");
         }
 
         /// <inheritdoc />
@@ -364,13 +376,13 @@ namespace SentryHouseBackend.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
                 name: "Servicios");
 
             migrationBuilder.DropTable(
                 name: "Proveedores");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUsers");
 
             migrationBuilder.DropTable(
                 name: "Cotizaciones");
