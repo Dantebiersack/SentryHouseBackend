@@ -97,7 +97,8 @@ namespace SentryHouseBackend.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ArchivoDocumento = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -218,8 +219,7 @@ namespace SentryHouseBackend.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CotizacionId = table.Column<int>(type: "int", nullable: false),
                     UsuarioId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    FechaVenta = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ArchivoDocumento = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    FechaVenta = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {

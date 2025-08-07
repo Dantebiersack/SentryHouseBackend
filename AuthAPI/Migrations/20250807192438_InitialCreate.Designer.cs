@@ -12,7 +12,7 @@ using SentryHouseBackend.Data;
 namespace SentryHouseBackend.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250807091224_InitialCreate")]
+    [Migration("20250807192438_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -358,6 +358,10 @@ namespace SentryHouseBackend.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("ArchivoDocumento")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Descripcion")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -378,10 +382,6 @@ namespace SentryHouseBackend.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("ArchivoDocumento")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("CotizacionId")
                         .HasColumnType("int");
