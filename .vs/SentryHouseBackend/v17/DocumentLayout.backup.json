@@ -43,12 +43,11 @@
               "Title": "ComentariosController.cs",
               "DocumentMoniker": "C:\\Users\\josue\\OneDrive\\Documentos\\SentryHouse Mena\\SentryHouseBackend\\AuthAPI\\Controllers\\ComentariosController.cs",
               "RelativeDocumentMoniker": "AuthAPI\\Controllers\\ComentariosController.cs",
-              "ToolTip": "C:\\Users\\josue\\OneDrive\\Documentos\\SentryHouse Mena\\SentryHouseBackend\\AuthAPI\\Controllers\\ComentariosController.cs*",
-              "RelativeToolTip": "AuthAPI\\Controllers\\ComentariosController.cs*",
+              "ToolTip": "C:\\Users\\josue\\OneDrive\\Documentos\\SentryHouse Mena\\SentryHouseBackend\\AuthAPI\\Controllers\\ComentariosController.cs",
+              "RelativeToolTip": "AuthAPI\\Controllers\\ComentariosController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T14:43:19.168Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-06T14:43:19.168Z"
             },
             {
               "$type": "Document",
@@ -60,8 +59,7 @@
               "RelativeToolTip": "AuthAPI\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-08-05T18:57:20.974Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-05T18:57:20.974Z"
             }
           ]
         }

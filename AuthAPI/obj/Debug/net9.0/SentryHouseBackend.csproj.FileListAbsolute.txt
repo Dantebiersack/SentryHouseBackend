@@ -704,3 +704,7 @@ C:\Users\josue\OneDrive\Documentos\SentryHouse Mena\SentryHouseBackend\AuthAPI\o
 C:\Users\josue\OneDrive\Documentos\SentryHouse Mena\SentryHouseBackend\AuthAPI\obj\Debug\net9.0\SentryHouseBackend.genruntimeconfig.cache
 C:\Users\josue\OneDrive\Documentos\SentryHouse Mena\SentryHouseBackend\AuthAPI\obj\Debug\net9.0\ref\SentryHouseBackend.dll
 >>>>>>> 7d77ef1234ddf7f6ec8b1993a8d3fd8f59629b8b
+C:\Developer\Basededatos\SentryHouseBackend\AuthAPI\obj\Debug\net9.0\SentryHouseBackend.csproj.AssemblyReference.cache
+C:\Developer\Basededatos\SentryHouseBackend\AuthAPI\obj\Debug\net9.0\SentryHouseBackend.dll
+C:\Developer\Basededatos\SentryHouseBackend\AuthAPI\obj\Debug\net9.0\refint\SentryHouseBackend.dll
+C:\Developer\Basededatos\SentryHouseBackend\AuthAPI\obj\Debug\net9.0\SentryHouseBackend.pdb
