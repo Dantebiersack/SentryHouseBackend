@@ -3,18 +3,24 @@
   "WorkspaceRootPath": "C:\\Developer\\Basededatos\\SentryHouseBackend\\",
   "Documents": [
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{24CD2588-342D-4756-AD6E-C167009DB29C}|AuthAPI\\SentryHouseBackend.csproj|c:\\developer\\basededatos\\sentryhousebackend\\authapi\\controllers\\emailcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{24CD2588-342D-4756-AD6E-C167009DB29C}|AuthAPI\\SentryHouseBackend.csproj|solutionrelative:authapi\\controllers\\emailcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{24CD2588-342D-4756-AD6E-C167009DB29C}|AuthAPI\\SentryHouseBackend.csproj|c:\\developer\\basededatos\\sentryhousebackend\\authapi\\dtos\\emailrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{24CD2588-342D-4756-AD6E-C167009DB29C}|AuthAPI\\SentryHouseBackend.csproj|solutionrelative:authapi\\dtos\\emailrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+=======
+      "AbsoluteMoniker": "D:0:0:{24CD2588-342D-4756-AD6E-C167009DB29C}|AuthAPI\\SentryHouseBackend.csproj|c:\\developer\\basededatos\\sentryhousebackend\\authapi\\controllers\\ventascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{24CD2588-342D-4756-AD6E-C167009DB29C}|AuthAPI\\SentryHouseBackend.csproj|solutionrelative:authapi\\controllers\\ventascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> badaa52254ef8a59bed9d25c8e9ae682e8a11922
     },
     {
-      "AbsoluteMoniker": "D:0:0:{24CD2588-342D-4756-AD6E-C167009DB29C}|AuthAPI\\SentryHouseBackend.csproj|c:\\developer\\basededatos\\sentryhousebackend\\authapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{24CD2588-342D-4756-AD6E-C167009DB29C}|AuthAPI\\SentryHouseBackend.csproj|solutionrelative:authapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{24CD2588-342D-4756-AD6E-C167009DB29C}|AuthAPI\\SentryHouseBackend.csproj|c:\\developer\\basededatos\\sentryhousebackend\\authapi\\migrations\\20250807192438_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{24CD2588-342D-4756-AD6E-C167009DB29C}|AuthAPI\\SentryHouseBackend.csproj|solutionrelative:authapi\\migrations\\20250807192438_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{24CD2588-342D-4756-AD6E-C167009DB29C}|AuthAPI\\SentryHouseBackend.csproj|c:\\developer\\basededatos\\sentryhousebackend\\authapi\\dtos\\changepassworddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{24CD2588-342D-4756-AD6E-C167009DB29C}|AuthAPI\\SentryHouseBackend.csproj|solutionrelative:authapi\\dtos\\changepassworddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -39,6 +45,12 @@
       "RelativeMoniker": "D:0:0:{24CD2588-342D-4756-AD6E-C167009DB29C}|AuthAPI\\SentryHouseBackend.csproj|solutionrelative:authapi\\models\\venta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+=======
+      "AbsoluteMoniker": "D:0:0:{24CD2588-342D-4756-AD6E-C167009DB29C}|AuthAPI\\SentryHouseBackend.csproj|c:\\developer\\basededatos\\sentryhousebackend\\authapi\\models\\venta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{24CD2588-342D-4756-AD6E-C167009DB29C}|AuthAPI\\SentryHouseBackend.csproj|solutionrelative:authapi\\models\\venta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+>>>>>>> badaa52254ef8a59bed9d25c8e9ae682e8a11922
       "AbsoluteMoniker": "D:0:0:{24CD2588-342D-4756-AD6E-C167009DB29C}|AuthAPI\\SentryHouseBackend.csproj|c:\\developer\\basededatos\\sentryhousebackend\\authapi\\models\\servicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{24CD2588-342D-4756-AD6E-C167009DB29C}|AuthAPI\\SentryHouseBackend.csproj|solutionrelative:authapi\\models\\servicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -62,7 +74,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
+<<<<<<< HEAD
           "SelectedChildIndex": 3,
+=======
+          "SelectedChildIndex": 4,
+>>>>>>> badaa52254ef8a59bed9d25c8e9ae682e8a11922
           "Children": [
             {
               "$type": "Bookmark",
@@ -78,6 +94,7 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 0,
               "Title": "EmailController.cs",
               "DocumentMoniker": "C:\\Developer\\Basededatos\\SentryHouseBackend\\AuthAPI\\Controllers\\EmailController.cs",
@@ -100,11 +117,83 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-08T00:48:13.825Z",
+=======
+              "DocumentIndex": 1,
+              "Title": "20250807192438_InitialCreate.cs",
+              "DocumentMoniker": "C:\\Developer\\Basededatos\\SentryHouseBackend\\AuthAPI\\Migrations\\20250807192438_InitialCreate.cs",
+              "RelativeDocumentMoniker": "AuthAPI\\Migrations\\20250807192438_InitialCreate.cs",
+              "ToolTip": "C:\\Developer\\Basededatos\\SentryHouseBackend\\AuthAPI\\Migrations\\20250807192438_InitialCreate.cs",
+              "RelativeToolTip": "AuthAPI\\Migrations\\20250807192438_InitialCreate.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-07T19:24:38.852Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "VentasController.cs",
+              "DocumentMoniker": "C:\\Developer\\Basededatos\\SentryHouseBackend\\AuthAPI\\Controllers\\VentasController.cs",
+              "RelativeDocumentMoniker": "AuthAPI\\Controllers\\VentasController.cs",
+              "ToolTip": "C:\\Developer\\Basededatos\\SentryHouseBackend\\AuthAPI\\Controllers\\VentasController.cs",
+              "RelativeToolTip": "AuthAPI\\Controllers\\VentasController.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAAwCYAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-07T19:24:09.796Z",
+>>>>>>> badaa52254ef8a59bed9d25c8e9ae682e8a11922
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "20250807191856_InitialCreate.cs",
+              "DocumentMoniker": "C:\\Developer\\Basededatos\\SentryHouseBackend\\AuthAPI\\Migrations\\20250807191856_InitialCreate.cs",
+              "RelativeDocumentMoniker": "AuthAPI\\Migrations\\20250807191856_InitialCreate.cs",
+              "ToolTip": "C:\\Developer\\Basededatos\\SentryHouseBackend\\AuthAPI\\Migrations\\20250807191856_InitialCreate.cs",
+              "RelativeToolTip": "AuthAPI\\Migrations\\20250807191856_InitialCreate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-07T19:18:57.242Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ServiciosController.cs",
+              "DocumentMoniker": "C:\\Developer\\Basededatos\\SentryHouseBackend\\AuthAPI\\Controllers\\ServiciosController.cs",
+              "RelativeDocumentMoniker": "AuthAPI\\Controllers\\ServiciosController.cs",
+              "ToolTip": "C:\\Developer\\Basededatos\\SentryHouseBackend\\AuthAPI\\Controllers\\ServiciosController.cs",
+              "RelativeToolTip": "AuthAPI\\Controllers\\ServiciosController.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAkwDMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-07T19:11:42.414Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Developer\\Basededatos\\SentryHouseBackend\\AuthAPI\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "AuthAPI\\Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Developer\\Basededatos\\SentryHouseBackend\\AuthAPI\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "AuthAPI\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-07T19:11:23.058Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Venta.cs",
+              "DocumentMoniker": "C:\\Developer\\Basededatos\\SentryHouseBackend\\AuthAPI\\Models\\Venta.cs",
+              "RelativeDocumentMoniker": "AuthAPI\\Models\\Venta.cs",
+              "ToolTip": "C:\\Developer\\Basededatos\\SentryHouseBackend\\AuthAPI\\Models\\Venta.cs",
+              "RelativeToolTip": "AuthAPI\\Models\\Venta.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAowAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-07T19:10:25.387Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 3,
+<<<<<<< HEAD
               "Title": "ChangePasswordDto.cs",
               "DocumentMoniker": "C:\\Developer\\Basededatos\\SentryHouseBackend\\AuthAPI\\Dtos\\ChangePasswordDto.cs",
               "RelativeDocumentMoniker": "AuthAPI\\Dtos\\ChangePasswordDto.cs",
@@ -237,6 +326,15 @@
               "RelativeToolTip": "AuthAPI\\Models\\Servicio.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+=======
+              "Title": "Servicio.cs",
+              "DocumentMoniker": "C:\\Developer\\Basededatos\\SentryHouseBackend\\AuthAPI\\Models\\Servicio.cs",
+              "RelativeDocumentMoniker": "AuthAPI\\Models\\Servicio.cs",
+              "ToolTip": "C:\\Developer\\Basededatos\\SentryHouseBackend\\AuthAPI\\Models\\Servicio.cs",
+              "RelativeToolTip": "AuthAPI\\Models\\Servicio.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+>>>>>>> badaa52254ef8a59bed9d25c8e9ae682e8a11922
               "WhenOpened": "2025-08-07T19:10:21.301Z"
             }
           ]
