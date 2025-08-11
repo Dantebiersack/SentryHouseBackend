@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace SentryHouseBackend.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class InitalCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -239,6 +239,34 @@ namespace SentryHouseBackend.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ComprasProveedores",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ProveedorId = table.Column<int>(type: "int", nullable: false),
+                    Fecha = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Estado = table.Column<int>(type: "int", nullable: false),
+                    Subtotal = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Iva = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Total = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    NumeroDocumento = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Notas = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ComprasProveedores", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ComprasProveedores_Proveedores_ProveedorId",
+                        column: x => x.ProveedorId,
+                        principalTable: "Proveedores",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "MateriasPrimas",
                 columns: table => new
                 {
@@ -284,6 +312,38 @@ namespace SentryHouseBackend.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "ComprasDetalles",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CompraProveedorId = table.Column<int>(type: "int", nullable: false),
+                    MateriaPrimaId = table.Column<int>(type: "int", nullable: false),
+                    Cantidad = table.Column<int>(type: "int", nullable: false),
+                    PrecioUnitario = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    IvaPorcentaje = table.Column<decimal>(type: "decimal(5,4)", nullable: false),
+                    Subtotal = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Iva = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    TotalLinea = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ComprasDetalles", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ComprasDetalles_ComprasProveedores_CompraProveedorId",
+                        column: x => x.CompraProveedorId,
+                        principalTable: "ComprasProveedores",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ComprasDetalles_MateriasPrimas_MateriaPrimaId",
+                        column: x => x.MateriaPrimaId,
+                        principalTable: "MateriasPrimas",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -322,6 +382,21 @@ namespace SentryHouseBackend.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ComprasDetalles_CompraProveedorId",
+                table: "ComprasDetalles",
+                column: "CompraProveedorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ComprasDetalles_MateriaPrimaId",
+                table: "ComprasDetalles",
+                column: "MateriaPrimaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ComprasProveedores_ProveedorId_Fecha_Estado",
+                table: "ComprasProveedores",
+                columns: new[] { "ProveedorId", "Fecha", "Estado" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_CotizacionServicios_ServicioId",
@@ -364,10 +439,10 @@ namespace SentryHouseBackend.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "CotizacionServicios");
+                name: "ComprasDetalles");
 
             migrationBuilder.DropTable(
-                name: "MateriasPrimas");
+                name: "CotizacionServicios");
 
             migrationBuilder.DropTable(
                 name: "Ventas");
@@ -376,16 +451,22 @@ namespace SentryHouseBackend.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "Servicios");
+                name: "ComprasProveedores");
 
             migrationBuilder.DropTable(
-                name: "Proveedores");
+                name: "MateriasPrimas");
+
+            migrationBuilder.DropTable(
+                name: "Servicios");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
                 name: "Cotizaciones");
+
+            migrationBuilder.DropTable(
+                name: "Proveedores");
         }
     }
 }

@@ -12,8 +12,8 @@ using SentryHouseBackend.Data;
 namespace SentryHouseBackend.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250807192438_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20250811000342_InitalCreat")]
+    partial class InitalCreat
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -232,6 +232,92 @@ namespace SentryHouseBackend.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("SentryHouseBackend.Models.CompraDetalle", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Cantidad")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CompraProveedorId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Iva")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("IvaPorcentaje")
+                        .HasColumnType("decimal(5,4)");
+
+                    b.Property<int>("MateriaPrimaId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("PrecioUnitario")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Subtotal")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("TotalLinea")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CompraProveedorId");
+
+                    b.HasIndex("MateriaPrimaId");
+
+                    b.ToTable("ComprasDetalles");
+                });
+
+            modelBuilder.Entity("SentryHouseBackend.Models.CompraProveedor", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Estado")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Fecha")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("Iva")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Notas")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NumeroDocumento")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProveedorId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Subtotal")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Total")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProveedorId", "Fecha", "Estado");
+
+                    b.ToTable("ComprasProveedores");
+                });
+
             modelBuilder.Entity("SentryHouseBackend.Models.Cotizacion", b =>
                 {
                     b.Property<int>("Id")
@@ -370,9 +456,41 @@ namespace SentryHouseBackend.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<decimal?>("PrecioBase")
+                        .HasColumnType("decimal(18,2)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Servicios");
+                });
+
+            modelBuilder.Entity("SentryHouseBackend.Models.ServicioMaterial", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<decimal>("CantidadRequerida")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("MateriaPrimaId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ServicioId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Unidad")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MateriaPrimaId");
+
+                    b.HasIndex("ServicioId");
+
+                    b.ToTable("ServiciosMateriales");
                 });
 
             modelBuilder.Entity("SentryHouseBackend.Models.Venta", b =>
@@ -383,11 +501,23 @@ namespace SentryHouseBackend.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("CotizacionId")
+                    b.Property<int?>("CotizacionId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Estado")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("FechaVenta")
                         .HasColumnType("datetime2");
+
+                    b.Property<decimal>("Iva")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Subtotal")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Total")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("UsuarioId")
                         .IsRequired()
@@ -396,11 +526,55 @@ namespace SentryHouseBackend.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CotizacionId")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[CotizacionId] IS NOT NULL");
 
-                    b.HasIndex("UsuarioId");
+                    b.HasIndex("Estado");
+
+                    b.HasIndex("UsuarioId", "FechaVenta");
 
                     b.ToTable("Ventas");
+                });
+
+            modelBuilder.Entity("SentryHouseBackend.Models.VentaDetalle", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Cantidad")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Iva")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("IvaPorcentaje")
+                        .HasColumnType("decimal(5,4)");
+
+                    b.Property<decimal>("PrecioUnitario")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("ServicioId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Subtotal")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("TotalLinea")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("VentaId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ServicioId");
+
+                    b.HasIndex("VentaId");
+
+                    b.ToTable("VentasDetalles");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -454,6 +628,36 @@ namespace SentryHouseBackend.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("SentryHouseBackend.Models.CompraDetalle", b =>
+                {
+                    b.HasOne("SentryHouseBackend.Models.CompraProveedor", "Compra")
+                        .WithMany("Detalles")
+                        .HasForeignKey("CompraProveedorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SentryHouseBackend.Models.MateriaPrima", "MateriaPrima")
+                        .WithMany()
+                        .HasForeignKey("MateriaPrimaId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Compra");
+
+                    b.Navigation("MateriaPrima");
+                });
+
+            modelBuilder.Entity("SentryHouseBackend.Models.CompraProveedor", b =>
+                {
+                    b.HasOne("SentryHouseBackend.Models.Proveedor", "Proveedor")
+                        .WithMany()
+                        .HasForeignKey("ProveedorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Proveedor");
+                });
+
             modelBuilder.Entity("SentryHouseBackend.Models.CotizacionServicio", b =>
                 {
                     b.HasOne("SentryHouseBackend.Models.Cotizacion", "Cotizacion")
@@ -465,7 +669,7 @@ namespace SentryHouseBackend.Migrations
                     b.HasOne("SentryHouseBackend.Models.Servicio", "Servicio")
                         .WithMany()
                         .HasForeignKey("ServicioId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Cotizacion");
@@ -478,10 +682,29 @@ namespace SentryHouseBackend.Migrations
                     b.HasOne("SentryHouseBackend.Models.Proveedor", "Proveedor")
                         .WithMany("MateriasPrimas")
                         .HasForeignKey("ProveedorId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Proveedor");
+                });
+
+            modelBuilder.Entity("SentryHouseBackend.Models.ServicioMaterial", b =>
+                {
+                    b.HasOne("SentryHouseBackend.Models.MateriaPrima", "MateriaPrima")
+                        .WithMany()
+                        .HasForeignKey("MateriaPrimaId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("SentryHouseBackend.Models.Servicio", "Servicio")
+                        .WithMany("Materiales")
+                        .HasForeignKey("ServicioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("MateriaPrima");
+
+                    b.Navigation("Servicio");
                 });
 
             modelBuilder.Entity("SentryHouseBackend.Models.Venta", b =>
@@ -489,13 +712,12 @@ namespace SentryHouseBackend.Migrations
                     b.HasOne("SentryHouseBackend.Models.Cotizacion", "Cotizacion")
                         .WithOne("VentaGenerada")
                         .HasForeignKey("SentryHouseBackend.Models.Venta", "CotizacionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("SentryHouseBackend.Models.AppUser", "Usuario")
                         .WithMany("Ventas")
                         .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Cotizacion");
@@ -503,9 +725,33 @@ namespace SentryHouseBackend.Migrations
                     b.Navigation("Usuario");
                 });
 
+            modelBuilder.Entity("SentryHouseBackend.Models.VentaDetalle", b =>
+                {
+                    b.HasOne("SentryHouseBackend.Models.Servicio", "Servicio")
+                        .WithMany()
+                        .HasForeignKey("ServicioId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("SentryHouseBackend.Models.Venta", "Venta")
+                        .WithMany("Detalles")
+                        .HasForeignKey("VentaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Servicio");
+
+                    b.Navigation("Venta");
+                });
+
             modelBuilder.Entity("SentryHouseBackend.Models.AppUser", b =>
                 {
                     b.Navigation("Ventas");
+                });
+
+            modelBuilder.Entity("SentryHouseBackend.Models.CompraProveedor", b =>
+                {
+                    b.Navigation("Detalles");
                 });
 
             modelBuilder.Entity("SentryHouseBackend.Models.Cotizacion", b =>
@@ -518,6 +764,16 @@ namespace SentryHouseBackend.Migrations
             modelBuilder.Entity("SentryHouseBackend.Models.Proveedor", b =>
                 {
                     b.Navigation("MateriasPrimas");
+                });
+
+            modelBuilder.Entity("SentryHouseBackend.Models.Servicio", b =>
+                {
+                    b.Navigation("Materiales");
+                });
+
+            modelBuilder.Entity("SentryHouseBackend.Models.Venta", b =>
+                {
+                    b.Navigation("Detalles");
                 });
 #pragma warning restore 612, 618
         }

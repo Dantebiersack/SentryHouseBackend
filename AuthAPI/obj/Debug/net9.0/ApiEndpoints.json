@@ -192,6 +192,251 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SentryHouseBackend.Controllers.ComprasProveedoresController",
+    "Method": "GetCompras",
+    "RelativePath": "api/ComprasProveedores",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "status",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "proveedorId",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "from",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "to",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SentryHouseBackend.Dtos.CompraLiteDto, SentryHouseBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SentryHouseBackend.Controllers.ComprasProveedoresController",
+    "Method": "CrearCompra",
+    "RelativePath": "api/ComprasProveedores",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "SentryHouseBackend.Dtos.CompraCreateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SentryHouseBackend.Dtos.CompraDetailDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SentryHouseBackend.Controllers.ComprasProveedoresController",
+    "Method": "GetCompra",
+    "RelativePath": "api/ComprasProveedores/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SentryHouseBackend.Dtos.CompraDetailDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SentryHouseBackend.Controllers.ComprasProveedoresController",
+    "Method": "ActualizarCompra",
+    "RelativePath": "api/ComprasProveedores/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "SentryHouseBackend.Dtos.CompraUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SentryHouseBackend.Controllers.ComprasProveedoresController",
+    "Method": "EliminarCompra",
+    "RelativePath": "api/ComprasProveedores/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SentryHouseBackend.Controllers.ComprasProveedoresController",
+    "Method": "AgregarDetalle",
+    "RelativePath": "api/ComprasProveedores/{id}/detalles",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "li",
+        "Type": "SentryHouseBackend.Dtos.CompraDetalleCreateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SentryHouseBackend.Controllers.ComprasProveedoresController",
+    "Method": "EditarDetalle",
+    "RelativePath": "api/ComprasProveedores/{id}/detalles/{detalleId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "detalleId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "li",
+        "Type": "SentryHouseBackend.Dtos.CompraDetalleCreateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SentryHouseBackend.Controllers.ComprasProveedoresController",
+    "Method": "EliminarDetalle",
+    "RelativePath": "api/ComprasProveedores/{id}/detalles/{detalleId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "detalleId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SentryHouseBackend.Controllers.ComprasProveedoresController",
+    "Method": "CambiarEstado",
+    "RelativePath": "api/ComprasProveedores/{id}/estado",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "body",
+        "Type": "SentryHouseBackend.Dtos.CambioEstadoDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SentryHouseBackend.Controllers.ComprasProveedoresController",
+    "Method": "RecibirCompra",
+    "RelativePath": "api/ComprasProveedores/{id}/recibir",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SentryHouseBackend.Controllers.CotizacionesController",
     "Method": "GetCotizaciones",
     "RelativePath": "api/Cotizaciones",
@@ -545,6 +790,53 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SentryHouseBackend.Controllers.ServiciosController",
+    "Method": "GetServicioDetalle",
+    "RelativePath": "api/Servicios/{id}/detalle",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SentryHouseBackend.Dtos.ServicioDetailDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SentryHouseBackend.Controllers.ServiciosController",
+    "Method": "SetMateriales",
+    "RelativePath": "api/Servicios/{id}/materiales",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "bom",
+        "Type": "System.Collections.Generic.List\u00601[[SentryHouseBackend.Dtos.ServicioMaterialDto, SentryHouseBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SentryHouseBackend.Controllers.UsuarioAppController",
     "Method": "CrearUsuarioApp",
     "RelativePath": "api/UsuarioApp",
@@ -555,6 +847,69 @@
       {
         "Name": "usuario",
         "Type": "SentryHouseBackend.Models.UsuarioApp",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SentryHouseBackend.Controllers.VentasController",
+    "Method": "CrearVenta",
+    "RelativePath": "api/Ventas",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "SentryHouseBackend.Dtos.VentaCreateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SentryHouseBackend.Controllers.VentasController",
+    "Method": "GetVenta",
+    "RelativePath": "api/Ventas/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SentryHouseBackend.Dtos.VentaDetailDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SentryHouseBackend.Controllers.VentasController",
+    "Method": "CambiarEstado",
+    "RelativePath": "api/Ventas/{id}/estado",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "body",
+        "Type": "SentryHouseBackend.Dtos.VentaEstadoDto",
         "IsRequired": true
       }
     ],
