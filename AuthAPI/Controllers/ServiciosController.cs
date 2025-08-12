@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SentryHouseBackend.Data;
-using SentryHouseBackend.Models;
 using Microsoft.EntityFrameworkCore;
+using SentryHouseBackend.Data;
+using SentryHouseBackend.Dtos;
+using SentryHouseBackend.Models;
+using System.Linq;
 
 namespace SentryHouseBackend.Controllers
 {
@@ -58,6 +60,60 @@ namespace SentryHouseBackend.Controllers
             await _context.SaveChangesAsync();
             return NoContent();
         }
+
+        // GET api/servicios/{id}/detalle
+        [HttpGet("{id:int}/detalle")]
+        public async Task<ActionResult<ServicioDetailDto>> GetServicioDetalle(int id)
+        {
+            var srv = await _context.Servicios
+                .Include(s => s.Materiales)
+                    .ThenInclude(m => m.MateriaPrima)
+                .FirstOrDefaultAsync(s => s.Id == id);
+
+            if (srv == null) return NotFound();
+
+            return Ok(new ServicioDetailDto
+            {
+                Id = srv.Id,
+                Nombre = srv.Nombre,
+                Descripcion = srv.Descripcion,
+                ArchivoDocumento = srv.ArchivoDocumento,
+                PrecioBase = srv.PrecioBase,
+                Materiales = srv.Materiales.Select(m => (m.MateriaPrimaId, m.MateriaPrima?.NombreProducto ?? "", m.CantidadRequerida, m.Unidad)).ToList()
+            });
+        }
+
+        // PUT api/servicios/{id}/materiales  (reemplaza la BOM completa)
+        [HttpPut("{id:int}/materiales")]
+        public async Task<IActionResult> SetMateriales(int id, [FromBody] List<ServicioMaterialDto> bom)
+        {
+            var srv = await _context.Servicios
+                .Include(s => s.Materiales)
+                .FirstOrDefaultAsync(s => s.Id == id);
+            if (srv == null) return NotFound();
+
+            // valida Materias
+            var ids = bom.Select(b => b.MateriaPrimaId).Distinct().ToList();
+            var existentes = await _context.MateriasPrimas.Where(m => ids.Contains(m.Id))
+                .Select(m => m.Id).ToListAsync();
+            if (existentes.Count != ids.Count) return BadRequest("Materia prima inexistente en la BOM.");
+
+            // reemplazo completo (simple y seguro)
+            _context.ServiciosMateriales.RemoveRange(srv.Materiales);
+            await _context.SaveChangesAsync();
+
+            srv.Materiales = bom.Select(b => new ServicioMaterial
+            {
+                ServicioId = id,
+                MateriaPrimaId = b.MateriaPrimaId,
+                CantidadRequerida = b.CantidadRequerida,
+                Unidad = b.Unidad
+            }).ToList();
+
+            await _context.SaveChangesAsync();
+            return NoContent();
+        }
+
 
     }
 
