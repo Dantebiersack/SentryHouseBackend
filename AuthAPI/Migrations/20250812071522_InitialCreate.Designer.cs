@@ -12,8 +12,8 @@ using SentryHouseBackend.Data;
 namespace SentryHouseBackend.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250811000342_InitalCreat")]
-    partial class InitalCreat
+    [Migration("20250812071522_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

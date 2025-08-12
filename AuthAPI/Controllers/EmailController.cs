@@ -56,5 +56,46 @@ namespace SentryHouseBackend.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
+
+        [HttpPost("enviarCorreoCotizacion")]
+        public async Task<IActionResult> EnviarCorreoCotizacion([FromBody] EmailRequest request)
+        {
+            try
+            {
+                var fromEmail = _configuration["correoCotizacion:FromEmail"];
+                var fromPassword = _configuration["correoCotizacion:FromPassword"];
+                var smtpHost = _configuration["correoCotizacion:SmtpHost"];
+                var smtpPort = int.Parse(_configuration["correoCotizacion:SmtpPort"]);
+                var toAddressString = _configuration["correoCotizacion:toAddress"];
+
+                var fromAddress = new MailAddress(fromEmail, "SentryHouse");
+                var toAddress = new MailAddress(toAddressString);
+
+                using var smtp = new SmtpClient
+                {
+                    Host = smtpHost,
+                    Port = smtpPort,
+                    EnableSsl = true,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    UseDefaultCredentials = false,
+                    Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+                };
+
+                using var message = new MailMessage(fromAddress, toAddress)
+                {
+                    Subject = request.Asunto,
+                    Body = request.Cuerpo,
+                    IsBodyHtml = true
+                };
+
+                await smtp.SendMailAsync(message);
+
+                return Ok(new { mensaje = "Correo de cotización enviado correctamente" });
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(new { error = ex.Message });
+            }
+        }
     }
 }

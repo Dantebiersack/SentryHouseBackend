@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace SentryHouseBackend.Migrations
 {
     /// <inheritdoc />
-    public partial class InitalCreate : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -98,7 +98,8 @@ namespace SentryHouseBackend.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ArchivoDocumento = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    ArchivoDocumento = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PrecioBase = table.Column<decimal>(type: "decimal(18,2)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -217,9 +218,13 @@ namespace SentryHouseBackend.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CotizacionId = table.Column<int>(type: "int", nullable: false),
+                    CotizacionId = table.Column<int>(type: "int", nullable: true),
                     UsuarioId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    FechaVenta = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    FechaVenta = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Estado = table.Column<int>(type: "int", nullable: false),
+                    Subtotal = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Iva = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Total = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -229,13 +234,13 @@ namespace SentryHouseBackend.Migrations
                         column: x => x.UsuarioId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Ventas_Cotizaciones_CotizacionId",
                         column: x => x.CotizacionId,
                         principalTable: "Cotizaciones",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -285,7 +290,7 @@ namespace SentryHouseBackend.Migrations
                         column: x => x.ProveedorId,
                         principalTable: "Proveedores",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -308,6 +313,38 @@ namespace SentryHouseBackend.Migrations
                         name: "FK_CotizacionServicios_Servicios_ServicioId",
                         column: x => x.ServicioId,
                         principalTable: "Servicios",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "VentasDetalles",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    VentaId = table.Column<int>(type: "int", nullable: false),
+                    ServicioId = table.Column<int>(type: "int", nullable: false),
+                    Cantidad = table.Column<int>(type: "int", nullable: false),
+                    PrecioUnitario = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    IvaPorcentaje = table.Column<decimal>(type: "decimal(5,4)", nullable: false),
+                    Subtotal = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Iva = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    TotalLinea = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_VentasDetalles", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_VentasDetalles_Servicios_ServicioId",
+                        column: x => x.ServicioId,
+                        principalTable: "Servicios",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_VentasDetalles_Ventas_VentaId",
+                        column: x => x.VentaId,
+                        principalTable: "Ventas",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -342,6 +379,34 @@ namespace SentryHouseBackend.Migrations
                         principalTable: "MateriasPrimas",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ServiciosMateriales",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ServicioId = table.Column<int>(type: "int", nullable: false),
+                    MateriaPrimaId = table.Column<int>(type: "int", nullable: false),
+                    CantidadRequerida = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Unidad = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ServiciosMateriales", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ServiciosMateriales_MateriasPrimas_MateriaPrimaId",
+                        column: x => x.MateriaPrimaId,
+                        principalTable: "MateriasPrimas",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_ServiciosMateriales_Servicios_ServicioId",
+                        column: x => x.ServicioId,
+                        principalTable: "Servicios",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -409,15 +474,41 @@ namespace SentryHouseBackend.Migrations
                 column: "ProveedorId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ServiciosMateriales_MateriaPrimaId",
+                table: "ServiciosMateriales",
+                column: "MateriaPrimaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ServiciosMateriales_ServicioId",
+                table: "ServiciosMateriales",
+                column: "ServicioId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Ventas_CotizacionId",
                 table: "Ventas",
                 column: "CotizacionId",
-                unique: true);
+                unique: true,
+                filter: "[CotizacionId] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Ventas_UsuarioId",
+                name: "IX_Ventas_Estado",
                 table: "Ventas",
-                column: "UsuarioId");
+                column: "Estado");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Ventas_UsuarioId_FechaVenta",
+                table: "Ventas",
+                columns: new[] { "UsuarioId", "FechaVenta" });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_VentasDetalles_ServicioId",
+                table: "VentasDetalles",
+                column: "ServicioId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_VentasDetalles_VentaId",
+                table: "VentasDetalles",
+                column: "VentaId");
         }
 
         /// <inheritdoc />
@@ -445,7 +536,10 @@ namespace SentryHouseBackend.Migrations
                 name: "CotizacionServicios");
 
             migrationBuilder.DropTable(
-                name: "Ventas");
+                name: "ServiciosMateriales");
+
+            migrationBuilder.DropTable(
+                name: "VentasDetalles");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
@@ -460,13 +554,16 @@ namespace SentryHouseBackend.Migrations
                 name: "Servicios");
 
             migrationBuilder.DropTable(
+                name: "Ventas");
+
+            migrationBuilder.DropTable(
+                name: "Proveedores");
+
+            migrationBuilder.DropTable(
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
                 name: "Cotizaciones");
-
-            migrationBuilder.DropTable(
-                name: "Proveedores");
         }
     }
 }
