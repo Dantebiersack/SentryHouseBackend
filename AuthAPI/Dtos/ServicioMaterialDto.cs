@@ -15,8 +15,16 @@
         public string ArchivoDocumento { get; set; }
         public decimal? PrecioBase { get; set; }
 
-        // BOM
         public List<ServicioMaterialDto> Materiales { get; set; } = new();
+    }
+
+    // Este es el nuevo DTO que necesitas crear
+    public class ServicioDetalleMaterialDto
+    {
+        public int MateriaPrimaId { get; set; }
+        public string MateriaPrimaNombre { get; set; }
+        public decimal CantidadRequerida { get; set; }
+        public string? Unidad { get; set; }
     }
 
     public class ServicioDetailDto
@@ -26,6 +34,8 @@
         public string Descripcion { get; set; }
         public string ArchivoDocumento { get; set; }
         public decimal? PrecioBase { get; set; }
-        public List<(int materiaPrimaId, string materiaPrimaNombre, decimal cantidad, string? unidad)> Materiales { get; set; } = new();
+
+        // La lista ahora usa el nuevo DTO para ser más clara
+        public List<ServicioDetalleMaterialDto> Materiales { get; set; } = new();
     }
 }

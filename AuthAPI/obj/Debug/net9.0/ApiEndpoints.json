@@ -770,27 +770,6 @@
   },
   {
     "ContainingType": "SentryHouseBackend.Controllers.ServiciosController",
-    "Method": "EditarServicio",
-    "RelativePath": "api/Servicios/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "servicioActualizado",
-        "Type": "SentryHouseBackend.Models.Servicio",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "SentryHouseBackend.Controllers.ServiciosController",
     "Method": "EliminarServicio",
     "RelativePath": "api/Servicios/{id}",
     "HttpMethod": "DELETE",

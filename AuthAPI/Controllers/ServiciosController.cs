@@ -32,23 +32,6 @@ namespace SentryHouseBackend.Controllers
             return CreatedAtAction(nameof(GetServicios), new { id = servicio.Id }, servicio);
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> EditarServicio(int id, [FromBody] Servicio servicioActualizado)
-        {
-            if (id != servicioActualizado.Id)
-                return BadRequest("El ID no coincide.");
-
-            var servicioExistente = await _context.Servicios.FindAsync(id);
-            if (servicioExistente == null)
-                return NotFound();
-
-            servicioExistente.Nombre = servicioActualizado.Nombre;
-            servicioExistente.Descripcion = servicioActualizado.Descripcion;
-
-            await _context.SaveChangesAsync();
-            return NoContent();
-        }
-
         [HttpDelete("{id}")]
         public async Task<IActionResult> EliminarServicio(int id)
         {
@@ -79,7 +62,14 @@ namespace SentryHouseBackend.Controllers
                 Descripcion = srv.Descripcion,
                 ArchivoDocumento = srv.ArchivoDocumento,
                 PrecioBase = srv.PrecioBase,
-                Materiales = srv.Materiales.Select(m => (m.MateriaPrimaId, m.MateriaPrima?.NombreProducto ?? "", m.CantidadRequerida, m.Unidad)).ToList()
+                // Proyecta a la nueva clase ServicioDetalleMaterialDto
+                Materiales = srv.Materiales.Select(m => new ServicioDetalleMaterialDto
+                {
+                    MateriaPrimaId = m.MateriaPrimaId,
+                    MateriaPrimaNombre = m.MateriaPrima?.NombreProducto ?? "", // Usa el nombre de la MateriaPrima
+                    CantidadRequerida = m.CantidadRequerida,
+                    Unidad = m.Unidad
+                }).ToList()
             });
         }
 
@@ -90,19 +80,21 @@ namespace SentryHouseBackend.Controllers
             var srv = await _context.Servicios
                 .Include(s => s.Materiales)
                 .FirstOrDefaultAsync(s => s.Id == id);
+
             if (srv == null) return NotFound();
 
             // valida Materias
             var ids = bom.Select(b => b.MateriaPrimaId).Distinct().ToList();
             var existentes = await _context.MateriasPrimas.Where(m => ids.Contains(m.Id))
                 .Select(m => m.Id).ToListAsync();
+
             if (existentes.Count != ids.Count) return BadRequest("Materia prima inexistente en la BOM.");
 
-            // reemplazo completo (simple y seguro)
+            // Eliminar los materiales existentes
             _context.ServiciosMateriales.RemoveRange(srv.Materiales);
-            await _context.SaveChangesAsync();
 
-            srv.Materiales = bom.Select(b => new ServicioMaterial
+            // Agregar los nuevos materiales
+            var nuevosMateriales = bom.Select(b => new ServicioMaterial
             {
                 ServicioId = id,
                 MateriaPrimaId = b.MateriaPrimaId,
@@ -110,7 +102,11 @@ namespace SentryHouseBackend.Controllers
                 Unidad = b.Unidad
             }).ToList();
 
+            _context.ServiciosMateriales.AddRange(nuevosMateriales);
+
+            // Guardar los cambios (eliminación e inserción) en una sola transacción
             await _context.SaveChangesAsync();
+
             return NoContent();
         }
 
