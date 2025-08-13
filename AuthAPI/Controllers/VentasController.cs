@@ -4,6 +4,7 @@ using SentryHouseBackend.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using SentryHouseBackend.Dtos;
+using System.Globalization;
 using SentryHouseBackend.Models;
 
 namespace SentryHouseBackend.Controllers
@@ -155,6 +156,93 @@ namespace SentryHouseBackend.Controllers
             await _context.SaveChangesAsync();
             return NoContent();
         }
+
+        [HttpGet("dashboard/summary")]
+        // [Authorize(Roles = "Admin")] // descomenta si ya manejas roles
+        public async Task<IActionResult> GetDashboardSummary([FromQuery] DateTime? from = null, [FromQuery] DateTime? to = null)
+        {
+            // Rango por defecto: últimos 30 días
+            var hoyUtc = DateTime.UtcNow.Date;
+            var inicio = (from?.Date) ?? hoyUtc.AddDays(-29);
+            var fin = (to?.Date) ?? hoyUtc;
+
+            // Normaliza fin para incluir todo el día
+            var finInclusive = fin.AddDays(1);
+
+            // KPIs básicos
+            var ventasQuery = _context.Ventas.AsNoTracking().Where(v => v.FechaVenta >= inicio && v.FechaVenta < finInclusive);
+
+            var subtotal = await ventasQuery.SumAsync(v => (decimal?)v.Subtotal) ?? 0m;
+            var iva = await ventasQuery.SumAsync(v => (decimal?)v.Iva) ?? 0m;
+            var total = await ventasQuery.SumAsync(v => (decimal?)v.Total) ?? 0m;
+            var cantidadVentas = await ventasQuery.CountAsync();
+
+            // Ventas hoy / semana / mes (en UTC; ajusta si usas zona MX local en BD)
+            var inicioSemana = hoyUtc.AddDays(-(int)hoyUtc.DayOfWeek); // domingo como inicio
+            var inicioMes = new DateTime(hoyUtc.Year, hoyUtc.Month, 1);
+
+            var ventasHoy = await _context.Ventas.AsNoTracking()
+                .Where(v => v.FechaVenta >= hoyUtc && v.FechaVenta < hoyUtc.AddDays(1))
+                .SumAsync(v => (decimal?)v.Total) ?? 0m;
+
+            var ventasSemana = await _context.Ventas.AsNoTracking()
+                .Where(v => v.FechaVenta >= inicioSemana && v.FechaVenta < hoyUtc.AddDays(1))
+                .SumAsync(v => (decimal?)v.Total) ?? 0m;
+
+            var ventasMes = await _context.Ventas.AsNoTracking()
+                .Where(v => v.FechaVenta >= inicioMes && v.FechaVenta < hoyUtc.AddDays(1))
+                .SumAsync(v => (decimal?)v.Total) ?? 0m;
+
+            // Serie diaria (últimos N días del rango)
+            var serieDiaria = await _context.Ventas.AsNoTracking()
+                .Where(v => v.FechaVenta >= inicio && v.FechaVenta < finInclusive)
+                .GroupBy(v => v.FechaVenta.Date)
+                .Select(g => new { fecha = g.Key, total = g.Sum(x => x.Total) })
+                .OrderBy(x => x.fecha)
+                .ToListAsync();
+
+            // Top servicios (por importe) en el rango
+            var topServicios = await _context.VentasDetalles.AsNoTracking()
+                .Where(d => d.Venta.FechaVenta >= inicio && d.Venta.FechaVenta < finInclusive)
+                .GroupBy(d => new { d.ServicioId, d.Servicio!.Nombre })
+                .Select(g => new {
+                    servicioId = g.Key.ServicioId,
+                    servicio = g.Key.Nombre,
+                    cantidad = g.Sum(x => x.Cantidad),
+                    importe = g.Sum(x => x.TotalLinea)
+                })
+                .OrderByDescending(x => x.importe)
+                .Take(5)
+                .ToListAsync();
+
+            var porEstado = await ventasQuery
+                .GroupBy(v => v.Estado)
+                .Select(g => new { estado = g.Key, cantidad = g.Count(), total = g.Sum(x => x.Total) })
+                .ToListAsync();
+
+            return Ok(new
+            {
+                rango = new { from = inicio, to = fin },
+                kpis = new
+                {
+                    subtotal,
+                    iva,
+                    total,
+                    cantidadVentas,
+                    ventasHoy,
+                    ventasSemana,
+                    ventasMes
+                },
+                series = new
+                {
+                    porDia = serieDiaria.Select(x => new { fecha = x.fecha.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture), total = x.total })
+                },
+                topServicios,
+                porEstado
+            });
+        }
+
+
     }
 
 
