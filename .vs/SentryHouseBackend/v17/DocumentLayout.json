@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{24CD2588-342D-4756-AD6E-C167009DB29C}|AuthAPI\\SentryHouseBackend.csproj|solutionrelative:authapi\\controllers\\cotizacionescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{24CD2588-342D-4756-AD6E-C167009DB29C}|AuthAPI\\SentryHouseBackend.csproj|c:\\developer\\sentryhouse\\sentryhousebackend\\authapi\\dtos\\authresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{24CD2588-342D-4756-AD6E-C167009DB29C}|AuthAPI\\SentryHouseBackend.csproj|solutionrelative:authapi\\dtos\\authresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{24CD2588-342D-4756-AD6E-C167009DB29C}|AuthAPI\\SentryHouseBackend.csproj|c:\\developer\\sentryhouse\\sentryhousebackend\\authapi\\dtos\\cotizaciondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{24CD2588-342D-4756-AD6E-C167009DB29C}|AuthAPI\\SentryHouseBackend.csproj|solutionrelative:authapi\\dtos\\cotizaciondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -17,10 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{24CD2588-342D-4756-AD6E-C167009DB29C}|AuthAPI\\SentryHouseBackend.csproj|c:\\developer\\sentryhouse\\sentryhousebackend\\authapi\\models\\cotizacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{24CD2588-342D-4756-AD6E-C167009DB29C}|AuthAPI\\SentryHouseBackend.csproj|solutionrelative:authapi\\models\\cotizacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{24CD2588-342D-4756-AD6E-C167009DB29C}|AuthAPI\\SentryHouseBackend.csproj|c:\\developer\\sentryhouse\\sentryhousebackend\\authapi\\dtos\\authresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{24CD2588-342D-4756-AD6E-C167009DB29C}|AuthAPI\\SentryHouseBackend.csproj|solutionrelative:authapi\\dtos\\authresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{24CD2588-342D-4756-AD6E-C167009DB29C}|AuthAPI\\SentryHouseBackend.csproj|c:\\developer\\sentryhouse\\sentryhousebackend\\authapi\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -97,7 +97,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "AuthResponseDto.cs",
               "DocumentMoniker": "C:\\Developer\\SentryHouse\\SentryHouseBackend\\AuthAPI\\Dtos\\AuthResponseDto.cs",
               "RelativeDocumentMoniker": "AuthAPI\\Dtos\\AuthResponseDto.cs",
@@ -110,7 +110,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "CotizacionDto.cs",
               "DocumentMoniker": "C:\\Developer\\SentryHouse\\SentryHouseBackend\\AuthAPI\\Dtos\\CotizacionDto.cs",
               "RelativeDocumentMoniker": "AuthAPI\\Dtos\\CotizacionDto.cs",
@@ -123,7 +123,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "CrearCotizacionDto.cs",
               "DocumentMoniker": "C:\\Developer\\SentryHouse\\SentryHouseBackend\\AuthAPI\\Dtos\\CrearCotizacionDto.cs",
               "RelativeDocumentMoniker": "AuthAPI\\Dtos\\CrearCotizacionDto.cs",
@@ -142,7 +142,7 @@
               "RelativeDocumentMoniker": "AuthAPI\\Controllers\\CotizacionesController.cs",
               "ToolTip": "C:\\Developer\\SentryHouse\\SentryHouseBackend\\AuthAPI\\Controllers\\CotizacionesController.cs",
               "RelativeToolTip": "AuthAPI\\Controllers\\CotizacionesController.cs",
-              "ViewState": "AgIAAEwAAAAAAAAAAAAjwFoAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAgwCsAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-13T08:44:35.675Z",
               "EditorCaption": ""
@@ -175,7 +175,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Cotizacion.cs",
               "DocumentMoniker": "C:\\Developer\\SentryHouse\\SentryHouseBackend\\AuthAPI\\Models\\Cotizacion.cs",
               "RelativeDocumentMoniker": "AuthAPI\\Models\\Cotizacion.cs",

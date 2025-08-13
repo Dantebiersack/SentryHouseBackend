@@ -22,6 +22,7 @@ namespace SentryHouseBackend.Controllers
         public async Task<ActionResult<IEnumerable<CotizacionDto>>> GetCotizaciones()
         {
             var cotizaciones = await _context.Cotizaciones
+                .Where(c=>c.EstaFinalizada == false)
                 .Include(c => c.CotizacionServicios)
                     .ThenInclude(cs => cs.Servicio)
                 .Select(c => new CotizacionDto
@@ -40,14 +41,14 @@ namespace SentryHouseBackend.Controllers
             return Ok(cotizaciones);
         }
 
-        [HttpGet("misCotizaciones")]
-        public async Task<ActionResult<IEnumerable<CotizacionDto>>> GetCotizacionesUser()
+        [HttpGet("misCotizaciones/{usuarioId}")]
+        public async Task<ActionResult<IEnumerable<CotizacionDto>>> GetCotizacionesUser(string usuarioId)
         {
-            // Obtener el ID del usuario logueado
-            var userId = User.FindFirstValue(System.Security.Claims.ClaimTypes.NameIdentifier);
+            if (string.IsNullOrEmpty(usuarioId))
+                return BadRequest("El Id del usuario es requerido.");
 
             var cotizaciones = await _context.Cotizaciones
-                .Where(c => c.UsuarioId == userId) // 🔹 filtramos por usuario
+                .Where(c => c.UsuarioId == usuarioId) // filtramos por el Id recibido
                 .Include(c => c.CotizacionServicios)
                     .ThenInclude(cs => cs.Servicio)
                 .Select(c => new CotizacionDto
@@ -66,6 +67,7 @@ namespace SentryHouseBackend.Controllers
 
             return Ok(cotizaciones);
         }
+
 
 
 

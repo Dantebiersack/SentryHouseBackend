@@ -475,11 +475,17 @@
   {
     "ContainingType": "SentryHouseBackend.Controllers.CotizacionesController",
     "Method": "GetCotizacionesUser",
-    "RelativePath": "api/Cotizaciones/misCotizaciones",
+    "RelativePath": "api/Cotizaciones/misCotizaciones/{usuarioId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "usuarioId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.IEnumerable\u00601[[SentryHouseBackend.Dtos.CotizacionDto, SentryHouseBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",

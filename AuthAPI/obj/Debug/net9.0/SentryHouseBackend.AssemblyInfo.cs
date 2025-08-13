@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SentryHouseBackend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dc38735ae0d93c871311b2cf4297e82572111f7c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5a09d3138a7f8e4b69a4397aed96b762be4f4947")]
 [assembly: System.Reflection.AssemblyProductAttribute("SentryHouseBackend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SentryHouseBackend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
