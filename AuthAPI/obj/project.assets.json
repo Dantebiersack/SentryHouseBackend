@@ -5428,11 +5428,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Developer\\Basededatos\\SentryHouseBackend\\AuthAPI\\SentryHouseBackend.csproj",
+      "projectUniqueName": "C:\\Developer\\SentryHouse\\SentryHouseBackend\\AuthAPI\\SentryHouseBackend.csproj",
       "projectName": "SentryHouseBackend",
-      "projectPath": "C:\\Developer\\Basededatos\\SentryHouseBackend\\AuthAPI\\SentryHouseBackend.csproj",
+      "projectPath": "C:\\Developer\\SentryHouse\\SentryHouseBackend\\AuthAPI\\SentryHouseBackend.csproj",
       "packagesPath": "C:\\Users\\rgcam\\.nuget\\packages\\",
-      "outputPath": "C:\\Developer\\Basededatos\\SentryHouseBackend\\AuthAPI\\obj\\",
+      "outputPath": "C:\\Developer\\SentryHouse\\SentryHouseBackend\\AuthAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

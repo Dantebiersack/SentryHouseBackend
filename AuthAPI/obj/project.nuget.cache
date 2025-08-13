@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xhCSAgCZa1U=",
+  "dgSpecHash": "Co4UNkQ1m+A=",
   "success": true,
-  "projectFilePath": "C:\\Developer\\Basededatos\\SentryHouseBackend\\AuthAPI\\SentryHouseBackend.csproj",
+  "projectFilePath": "C:\\Developer\\SentryHouse\\SentryHouseBackend\\AuthAPI\\SentryHouseBackend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rgcam\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\rgcam\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

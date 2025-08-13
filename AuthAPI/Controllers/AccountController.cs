@@ -31,9 +31,8 @@ namespace SentryHouseBackend.Controllers
             _configuration = configuration;
         }
 
-        // api/account/register
         [HttpPost("register")]
-        public async Task<ActionResult<string>> Register(RegisterDto registerDto)
+        public async Task<ActionResult<AuthResponseDto>> Register(RegisterDto registerDto)
         {
             if (!ModelState.IsValid)
             {
@@ -54,6 +53,7 @@ namespace SentryHouseBackend.Controllers
                 return BadRequest(result.Errors);
             }
 
+            // Asignar roles
             if (registerDto.Roles is null)
             {
                 await _userManager.AddToRoleAsync(user, "User");
@@ -66,10 +66,12 @@ namespace SentryHouseBackend.Controllers
                 }
             }
 
+            // Retornar ID junto con mensaje
             return Ok(new AuthResponseDto
             {
                 IsSuccess = true,
-                Message = "Account Created Sucessfully!!!"
+                Message = "Account Created Successfully!!!",
+                UserId = user.Id
             });
         }
 

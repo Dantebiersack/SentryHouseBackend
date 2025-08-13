@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using SentryHouseBackend.Data;
 using SentryHouseBackend.Dtos;
 using SentryHouseBackend.Models;
+using System.Security.Claims;
 
 namespace SentryHouseBackend.Controllers
 {
@@ -30,6 +31,7 @@ namespace SentryHouseBackend.Controllers
                     Email = c.Email,
                     FechaSolicitud = c.FechaSolicitud,
                     EstaFinalizada = c.EstaFinalizada,
+                    UsuarioId = c.UsuarioId, // 🔹 solo guardamos el ID
                     Servicios = c.CotizacionServicios
                         .Select(cs => cs.Servicio.Nombre)
                         .ToList()
@@ -38,9 +40,40 @@ namespace SentryHouseBackend.Controllers
             return Ok(cotizaciones);
         }
 
+        [HttpGet("misCotizaciones")]
+        public async Task<ActionResult<IEnumerable<CotizacionDto>>> GetCotizacionesUser()
+        {
+            // Obtener el ID del usuario logueado
+            var userId = User.FindFirstValue(System.Security.Claims.ClaimTypes.NameIdentifier);
+
+            var cotizaciones = await _context.Cotizaciones
+                .Where(c => c.UsuarioId == userId) // 🔹 filtramos por usuario
+                .Include(c => c.CotizacionServicios)
+                    .ThenInclude(cs => cs.Servicio)
+                .Select(c => new CotizacionDto
+                {
+                    Id = c.Id,
+                    Nombre = c.Nombre,
+                    Email = c.Email,
+                    FechaSolicitud = c.FechaSolicitud,
+                    EstaFinalizada = c.EstaFinalizada,
+                    UsuarioId = c.UsuarioId,
+                    Servicios = c.CotizacionServicios
+                        .Select(cs => cs.Servicio.Nombre)
+                        .ToList()
+                })
+                .ToListAsync();
+
+            return Ok(cotizaciones);
+        }
+
+
+
         [HttpPost]
         public async Task<ActionResult> CrearCotizacion(CrearCotizacionDto dto)
         {
+            var userId = User.FindFirstValue(System.Security.Claims.ClaimTypes.NameIdentifier);
+
             var cotizacion = new Cotizacion
             {
                 Nombre = dto.Nombre,
@@ -51,6 +84,7 @@ namespace SentryHouseBackend.Controllers
                 Direccion = dto.Direccion,
                 FechaSolicitud = dto.FechaSolicitud,
                 EstaFinalizada = dto.EstaFinalizada,
+                UsuarioId = dto.UsuarioId, 
                 CotizacionServicios = dto.ServiciosIds.Select(sid => new CotizacionServicio
                 {
                     ServicioId = sid
@@ -62,5 +96,6 @@ namespace SentryHouseBackend.Controllers
 
             return CreatedAtAction(nameof(GetCotizaciones), new { id = cotizacion.Id }, null);
         }
+
     }
 }

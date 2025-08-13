@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SentryHouseBackend.Data;
 
@@ -11,9 +12,11 @@ using SentryHouseBackend.Data;
 namespace SentryHouseBackend.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250813083920_Blank")]
+    partial class Blank
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -353,12 +356,7 @@ namespace SentryHouseBackend.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UsuarioId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UsuarioId");
 
                     b.ToTable("Cotizaciones");
                 });
@@ -658,16 +656,6 @@ namespace SentryHouseBackend.Migrations
                         .IsRequired();
 
                     b.Navigation("Proveedor");
-                });
-
-            modelBuilder.Entity("SentryHouseBackend.Models.Cotizacion", b =>
-                {
-                    b.HasOne("SentryHouseBackend.Models.AppUser", "Usuario")
-                        .WithMany()
-                        .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.Navigation("Usuario");
                 });
 
             modelBuilder.Entity("SentryHouseBackend.Models.CotizacionServicio", b =>

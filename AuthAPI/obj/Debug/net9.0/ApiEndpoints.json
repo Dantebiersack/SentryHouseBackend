@@ -139,7 +139,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.String",
+        "Type": "SentryHouseBackend.Dtos.AuthResponseDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -471,6 +471,26 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SentryHouseBackend.Controllers.CotizacionesController",
+    "Method": "GetCotizacionesUser",
+    "RelativePath": "api/Cotizaciones/misCotizaciones",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SentryHouseBackend.Dtos.CotizacionDto, SentryHouseBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "SentryHouseBackend.Controllers.EmailController",

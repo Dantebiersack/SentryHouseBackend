@@ -16,12 +16,13 @@ namespace SentryHouseBackend.Models
         public DateTime FechaSolicitud { get; set; } = DateTime.Now;
         public bool EstaFinalizada { get; set; } = false;
 
+        // 🔹 Relación con Usuario que solicitó la cotización
+        public string? UsuarioId { get; set; } // FK hacia AppUser
+        public AppUser? Usuario { get; set; }  // Navegación
+
         // Relación con Servicios
-        
         public ICollection<CotizacionServicio> CotizacionServicios { get; set; }
 
         public Venta? VentaGenerada { get; set; }
     }
-
-
 }

@@ -121,6 +121,14 @@ namespace SentryHouseBackend.Data
 
             // Si agregaste EstadoVenta en Venta, puedes indexarlo:
              builder.Entity<Venta>().HasIndex(v => v.Estado);
+
+            // ----- COTIZACION ↔ USUARIO (1:N) -----
+            builder.Entity<Cotizacion>()
+                .HasOne(c => c.Usuario)
+                .WithMany() // si después quieres que el usuario tenga ICollection<Cotizacion> se puede agregar
+                .HasForeignKey(c => c.UsuarioId)
+                .OnDelete(DeleteBehavior.Restrict);
+
         }
     }
 }

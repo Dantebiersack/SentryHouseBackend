@@ -11,6 +11,8 @@
         public DateTime FechaSolicitud { get; set; }
         public bool EstaFinalizada { get; set; }
 
+        public string? UsuarioId { get; set; }
+
         public List<int> ServiciosIds { get; set; }
     }
 }
