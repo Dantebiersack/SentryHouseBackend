@@ -938,6 +938,27 @@
   },
   {
     "ContainingType": "SentryHouseBackend.Controllers.VentasController",
+    "Method": "GetDashboardSummary",
+    "RelativePath": "api/Ventas/dashboard/summary",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "from",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "to",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SentryHouseBackend.Controllers.VentasController",
     "Method": "ObtenerVentasPorUsuario",
     "RelativePath": "api/Ventas/usuario/{usuarioId}",
     "HttpMethod": "GET",
